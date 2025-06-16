@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace UnicomTicManagementSystem.Models
 {
-    internal class Room
+    public class Room
     {
+        public int RoomID { get; set; }
+        public string RoomName { get; set; }
+        public string RoomType { get; set; }
     }
 }

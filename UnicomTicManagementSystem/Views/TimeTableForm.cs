@@ -13,18 +13,20 @@ namespace UnicomTicManagementSystem.Views
         public TimeTableForm()
         {
             InitializeComponent();
-            LoadSubjects(); // Load comboSubject values from database
+            LoadSubjects(); 
         }
 
         private void TimeTableForm_Load(object sender, EventArgs e)
         {
             LoadTimetableData();
+            LoadSubjects();
+            LoadRooms();
         }
 
         private void LoadSubjects()
         {
             comboSubject.Items.Clear();
-            DataTable dt = controller.GetSubjects(); // assume this method returns available subjects
+            DataTable dt = controller.GetSubjects();
             foreach (DataRow row in dt.Rows)
             {
                 comboSubject.Items.Add(row["SubjectName"].ToString());
@@ -39,17 +41,32 @@ namespace UnicomTicManagementSystem.Views
         private void ClearForm()
         {
             comboSubject.SelectedIndex = -1;
-            txtRoom.Clear();
             txtTimeSlot.Clear();
             textBox1.Clear();
             selectedTimetableId = -1;
             datePicker.Value = DateTime.Today;
+            comboRoom.Items.Clear();
+            DataTable dt = controller.GetRooms();
+            foreach (DataRow row in dt.Rows)
+            {
+                comboRoom.Items.Add(row["RoomName"].ToString());
+            }
+        }
+
+        private void LoadRooms()
+        {
+            comboRoom.Items.Clear();
+            DataTable dt = controller.GetRooms();
+            foreach (DataRow row in dt.Rows)
+            {
+                comboRoom.Items.Add(row["RoomName"].ToString());
+            }
         }
 
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (comboSubject.SelectedItem == null || string.IsNullOrWhiteSpace(txtTimeSlot.Text) || string.IsNullOrWhiteSpace(txtRoom.Text))
+            if (comboSubject.SelectedItem == null || string.IsNullOrWhiteSpace(txtTimeSlot.Text) || comboRoom.SelectedItem == null)
             {
                 MessageBox.Show("Please enter all fields: Subject, TimeSlot, Room, and Date.");
                 return;
@@ -61,7 +78,7 @@ namespace UnicomTicManagementSystem.Views
             controller.AddTimetable(
                 comboSubject.SelectedItem.ToString(),
                 txtTimeSlot.Text.Trim(),
-                txtRoom.Text.Trim(),
+                comboRoom.SelectedItem.ToString(),
                 selectedDate
             );
 
@@ -86,7 +103,7 @@ namespace UnicomTicManagementSystem.Views
                 selectedTimetableId,
                 comboSubject.SelectedItem.ToString(),
                 txtTimeSlot.Text.Trim(),
-                txtRoom.Text.Trim(),
+                comboRoom.SelectedItem.ToString(),
                 selectedDate
             );
 
@@ -106,7 +123,7 @@ namespace UnicomTicManagementSystem.Views
                 selectedTimetableId = Convert.ToInt32(row.Cells["Id"].Value);
                 comboSubject.SelectedItem = row.Cells["Subject"].Value.ToString();
                 txtTimeSlot.Text = row.Cells["TimeSlot"].Value.ToString();
-                txtRoom.Text = row.Cells["Room"].Value.ToString();
+                comboRoom.Text = row.Cells["Room"].Value.ToString();
             }
         }
 

@@ -93,10 +93,12 @@ namespace UnicomTicManagementSystem.Data
                         ExamName TEXT NOT NULL,
                         FOREIGN KEY (SubjectID) REFERENCES Subjects(SubjectID)
                     );
-
-
-
-
+                     
+                    CREATE TABLE IF NOT EXISTS Rooms (
+                        RoomID INTEGER PRIMARY KEY AUTOINCREMENT,
+                        RoomName TEXT NOT NULL,
+                        RoomType TEXT NOT NULL
+                    );
 
                 ";
 

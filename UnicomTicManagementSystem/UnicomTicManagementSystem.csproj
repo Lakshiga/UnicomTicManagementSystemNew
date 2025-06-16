@@ -55,6 +55,7 @@
     <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MarkController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\SectionController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
@@ -114,6 +115,12 @@
     </Compile>
     <Compile Include="Views\MarkForm.Designer.cs">
       <DependentUpon>MarkForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RoomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RoomForm.Designer.cs">
+      <DependentUpon>RoomForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\SectionForm.cs">
       <SubType>Form</SubType>
@@ -177,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MarkForm.resx">
       <DependentUpon>MarkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RoomForm.resx">
+      <DependentUpon>RoomForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SectionForm.resx">
       <DependentUpon>SectionForm.cs</DependentUpon>

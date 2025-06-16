@@ -26,6 +26,22 @@ namespace UnicomTicManagementSystem.Controllers
             }
         }
 
+        public DataTable GetRooms()
+        {
+            using (var conn = DbCon.GetConnection())
+            {
+                string query = "SELECT RoomName FROM Rooms";
+                using (var cmd = new SQLiteCommand(query, conn))
+                using (var adapter = new SQLiteDataAdapter(cmd))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    return dt;
+                }
+            }
+        }
+
+
         public DataTable GetAllTimetables()
         {
             return repository.GetAllTimeTables();

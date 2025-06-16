@@ -62,8 +62,8 @@ namespace UnicomTicManagementSystem.Views
         {
             name.Clear();
             address.Clear();
-            username.Clear(); // Clear username textbox
-            password.Clear(); // Clear password textbox
+            username.Clear(); 
+            password.Clear(); 
             cmbSection.SelectedIndex = -1;
             selectedStudentId = -1;
         }
