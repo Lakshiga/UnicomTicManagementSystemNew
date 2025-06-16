@@ -46,7 +46,7 @@
             this.btnDelete.Location = new System.Drawing.Point(157, 177);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(53, 27);
+            this.btnDelete.Size = new System.Drawing.Size(67, 27);
             this.btnDelete.TabIndex = 0;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -57,7 +57,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(259, 177);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(53, 27);
+            this.btnUpdate.Size = new System.Drawing.Size(65, 27);
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.UseVisualStyleBackColor = true;

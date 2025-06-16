@@ -9,7 +9,7 @@ namespace UnicomTicManagementSystem.Data
 {
     public static class DbCon
     {
-        private static string connectionString = "Data Source = unicomtic.db; Version=3;";
+        private static string connectionString = "Data Source = SchoolManageDB.db; Version=3;";
 
         public static SQLiteConnection GetConnection()
         {
