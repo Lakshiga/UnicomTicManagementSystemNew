@@ -1,4 +1,8 @@
-﻿namespace UnicomTicManagementSystem.Views
+﻿using System.Drawing;
+using System;
+using System.Windows.Forms;
+
+namespace UnicomTicManagementSystem.Views
 {
     partial class MainForm
     {
@@ -35,23 +39,30 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
             this.btnlogout = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.performanceCounter1 = new System.Diagnostics.PerformanceCounter();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button9 = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.lblTotalSubjects = new System.Windows.Forms.Label();
+            this.lblTotalCourses = new System.Windows.Forms.Label();
+            this.lblTotalLectures = new System.Windows.Forms.Label();
+            this.lblTotalStudents = new System.Windows.Forms.Label();
+            this.flowSidebar = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblWelcome = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.performanceCounter1)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.flowSidebar.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(15, 53);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(13, 87);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 29);
+            this.button1.Size = new System.Drawing.Size(212, 36);
             this.button1.TabIndex = 0;
             this.button1.Text = "Manage Student";
             this.button1.UseVisualStyleBackColor = true;
@@ -59,10 +70,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(15, 86);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Location = new System.Drawing.Point(13, 127);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(159, 30);
+            this.button2.Size = new System.Drawing.Size(212, 37);
             this.button2.TabIndex = 1;
             this.button2.Text = "Manage Lecures";
             this.button2.UseVisualStyleBackColor = true;
@@ -70,10 +81,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(15, 130);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Location = new System.Drawing.Point(13, 168);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(159, 29);
+            this.button3.Size = new System.Drawing.Size(212, 36);
             this.button3.TabIndex = 2;
             this.button3.Text = "Manage Section";
             this.button3.UseVisualStyleBackColor = true;
@@ -81,10 +92,10 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(15, 214);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Location = new System.Drawing.Point(13, 246);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(159, 29);
+            this.button4.Size = new System.Drawing.Size(212, 36);
             this.button4.TabIndex = 3;
             this.button4.Text = "Manage Subject";
             this.button4.UseVisualStyleBackColor = true;
@@ -92,10 +103,10 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(15, 173);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Location = new System.Drawing.Point(13, 208);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(159, 28);
+            this.button5.Size = new System.Drawing.Size(212, 34);
             this.button5.TabIndex = 4;
             this.button5.Text = "Manage Staff";
             this.button5.UseVisualStyleBackColor = true;
@@ -103,10 +114,10 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(15, 257);
-            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button6.Location = new System.Drawing.Point(13, 286);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(159, 28);
+            this.button6.Size = new System.Drawing.Size(212, 34);
             this.button6.TabIndex = 5;
             this.button6.Text = "Manage Timetable";
             this.button6.UseVisualStyleBackColor = true;
@@ -114,51 +125,32 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(15, 298);
-            this.button8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button8.Location = new System.Drawing.Point(13, 324);
+            this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(159, 24);
+            this.button8.Size = new System.Drawing.Size(212, 34);
             this.button8.TabIndex = 7;
             this.button8.Text = "Manage Exam";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // panel1
+            // button9
             // 
-            this.panel1.Controls.Add(this.button9);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnlogout);
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button8);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 446);
-            this.panel1.TabIndex = 8;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(26, 15);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 36);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "WELCOM TO ADMIN\r\n     DASHBOARD";
+            this.button9.Location = new System.Drawing.Point(13, 362);
+            this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(212, 30);
+            this.button9.TabIndex = 11;
+            this.button9.Text = "Manage Room";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // btnlogout
             // 
-            this.btnlogout.Location = new System.Drawing.Point(15, 411);
-            this.btnlogout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnlogout.Location = new System.Drawing.Point(13, 430);
+            this.btnlogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnlogout.Name = "btnlogout";
-            this.btnlogout.Size = new System.Drawing.Size(159, 24);
+            this.btnlogout.Size = new System.Drawing.Size(212, 30);
             this.btnlogout.TabIndex = 9;
             this.btnlogout.Text = "LOG OUT";
             this.btnlogout.UseVisualStyleBackColor = true;
@@ -166,10 +158,10 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(15, 335);
-            this.button7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button7.Location = new System.Drawing.Point(13, 396);
+            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(159, 24);
+            this.button7.Size = new System.Drawing.Size(212, 30);
             this.button7.TabIndex = 8;
             this.button7.Text = "Manage Marks";
             this.button7.UseVisualStyleBackColor = true;
@@ -177,35 +169,128 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lblTotalSubjects);
+            this.panel2.Controls.Add(this.lblTotalCourses);
+            this.panel2.Controls.Add(this.lblTotalLectures);
+            this.panel2.Controls.Add(this.lblTotalStudents);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(200, 0);
+            this.panel2.Location = new System.Drawing.Point(267, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(527, 446);
+            this.panel2.Size = new System.Drawing.Size(702, 549);
             this.panel2.TabIndex = 9;
             // 
-            // button9
+            // lblTotalSubjects
             // 
-            this.button9.Location = new System.Drawing.Point(15, 373);
-            this.button9.Margin = new System.Windows.Forms.Padding(2);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(159, 24);
-            this.button9.TabIndex = 11;
-            this.button9.Text = "Manage Room";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.lblTotalSubjects.AutoSize = true;
+            this.lblTotalSubjects.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.lblTotalSubjects.Font = new System.Drawing.Font("Microsoft Uighur", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalSubjects.Location = new System.Drawing.Point(388, 304);
+            this.lblTotalSubjects.Name = "lblTotalSubjects";
+            this.lblTotalSubjects.Size = new System.Drawing.Size(196, 168);
+            this.lblTotalSubjects.TabIndex = 3;
+            this.lblTotalSubjects.Text = "    TOTAL \r\nSUBJECTS :\r\n      NO";
+            this.lblTotalSubjects.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // lblTotalCourses
+            // 
+            this.lblTotalCourses.AutoSize = true;
+            this.lblTotalCourses.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.lblTotalCourses.Font = new System.Drawing.Font("Microsoft Uighur", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCourses.Location = new System.Drawing.Point(92, 304);
+            this.lblTotalCourses.Name = "lblTotalCourses";
+            this.lblTotalCourses.Size = new System.Drawing.Size(183, 168);
+            this.lblTotalCourses.TabIndex = 2;
+            this.lblTotalCourses.Text = "   TOTAL \r\nCOURSES:\r\n      NO";
+            // 
+            // lblTotalLectures
+            // 
+            this.lblTotalLectures.AutoSize = true;
+            this.lblTotalLectures.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.lblTotalLectures.Font = new System.Drawing.Font("Microsoft Uighur", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalLectures.Location = new System.Drawing.Point(388, 65);
+            this.lblTotalLectures.Name = "lblTotalLectures";
+            this.lblTotalLectures.Size = new System.Drawing.Size(177, 168);
+            this.lblTotalLectures.TabIndex = 1;
+            this.lblTotalLectures.Text = "   TOTAL \r\nLECURES:\r\n     NO";
+            // 
+            // lblTotalStudents
+            // 
+            this.lblTotalStudents.AutoSize = true;
+            this.lblTotalStudents.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.lblTotalStudents.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblTotalStudents.Font = new System.Drawing.Font("Microsoft Uighur", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalStudents.Location = new System.Drawing.Point(79, 65);
+            this.lblTotalStudents.Margin = new System.Windows.Forms.Padding(8, 0, 3, 0);
+            this.lblTotalStudents.Name = "lblTotalStudents";
+            this.lblTotalStudents.Size = new System.Drawing.Size(208, 170);
+            this.lblTotalStudents.TabIndex = 0;
+            this.lblTotalStudents.Text = "    TOTAL \r\nSTUDENTS:\r\n      NO";
+            this.lblTotalStudents.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // flowSidebar
+            // 
+            this.flowSidebar.AutoScroll = true;
+            this.flowSidebar.Controls.Add(this.lblWelcome);
+            this.flowSidebar.Controls.Add(this.button1);
+            this.flowSidebar.Controls.Add(this.button2);
+            this.flowSidebar.Controls.Add(this.button3);
+            this.flowSidebar.Controls.Add(this.button5);
+            this.flowSidebar.Controls.Add(this.button4);
+            this.flowSidebar.Controls.Add(this.button6);
+            this.flowSidebar.Controls.Add(this.button8);
+            this.flowSidebar.Controls.Add(this.button9);
+            this.flowSidebar.Controls.Add(this.button7);
+            this.flowSidebar.Controls.Add(this.btnlogout);
+            this.flowSidebar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowSidebar.Location = new System.Drawing.Point(14, 37);
+            this.flowSidebar.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
+            this.flowSidebar.Name = "flowSidebar";
+            this.flowSidebar.Padding = new System.Windows.Forms.Padding(10);
+            this.flowSidebar.Size = new System.Drawing.Size(240, 493);
+            this.flowSidebar.TabIndex = 12;
+            this.flowSidebar.WrapContents = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel1.Controls.Add(this.flowSidebar);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(267, 549);
+            this.panel1.TabIndex = 8;
+            // 
+            // lblWelcome
+            // 
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.Location = new System.Drawing.Point(13, 10);
+            this.lblWelcome.ForeColor = System.Drawing.Color.Black;
+            this.lblWelcome.Margin = new Padding(10);
+            this.lblWelcome.Padding = new Padding(5);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(132, 75);
+            this.lblWelcome.TabIndex = 13;
+            this.lblWelcome.Text = "Welcome to \r\nDashboard\r\n\r\n";
+            this.lblWelcome.Click += new System.EventHandler(this.lblWelcome_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(727, 446);
+            this.ClientSize = new System.Drawing.Size(969, 549);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.flowSidebar.ResumeLayout(false);
+            this.flowSidebar.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -219,12 +304,17 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Panel panel1;
         private System.Diagnostics.PerformanceCounter performanceCounter1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button btnlogout;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Label lblTotalStudents;
+        private System.Windows.Forms.Label lblTotalSubjects;
+        private System.Windows.Forms.Label lblTotalCourses;
+        private System.Windows.Forms.Label lblTotalLectures;
+        private System.Windows.Forms.FlowLayoutPanel flowSidebar;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblWelcome;
     }
 }

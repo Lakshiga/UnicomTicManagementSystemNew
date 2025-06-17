@@ -155,5 +155,10 @@ namespace UnicomTicManagementSystem.Views
             textBox1.Text = datePicker.Value.ToString("yyyy-MM-dd");
             datePicker.Visible = false;
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

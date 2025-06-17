@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace UnicomTicManagementSystem.Models
 {
-    internal class Mark
+    public class Mark
     {
+        public int MarkID { get; set; }
+        public int StudentID { get; set; }
+        public string Subject { get; set; }
+        public string Exam { get; set; }
+        public int Score { get; set; }
     }
 }

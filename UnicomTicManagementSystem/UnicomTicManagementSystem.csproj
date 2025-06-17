@@ -87,6 +87,7 @@
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\MarkRepository.cs" />
     <Compile Include="Repositories\StudentRepository.cs" />
     <Compile Include="Repositories\TimeTableRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />

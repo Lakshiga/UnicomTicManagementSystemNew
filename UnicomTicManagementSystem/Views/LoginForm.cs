@@ -66,10 +66,12 @@ namespace UnicomTicManagementSystem.Views
                 switch (user.Role.ToLower())
                 {
                     case "admin":
-                        var adminDashboard = new MainForm();
-                        this.Hide();  // Hide the login form, don't close it
-                        adminDashboard.ShowDialog(); // Block here until MainForm is closed
-                        this.Show(); // Optionally show login again after logout
+                    case "staff":
+                    case "lecture":
+                        var mainForm = new MainForm(user.Role); // Pass role to MainForm
+                        this.Hide();
+                        mainForm.ShowDialog();
+                        this.Show();
                         break;
 
                     /*case "staff":

@@ -100,6 +100,15 @@ namespace UnicomTicManagementSystem.Data
                         RoomType TEXT NOT NULL
                     );
 
+                    CREATE TABLE IF NOT EXISTS Marks (
+                        MarkID INTEGER PRIMARY KEY AUTOINCREMENT,
+                        StudentID INTEGER NOT NULL,
+                        Subject TEXT NOT NULL,
+                        Exam TEXT NOT NULL,
+                        Score INTEGER NOT NULL,
+                        FOREIGN KEY(StudentID) REFERENCES Students(StudentID)
+                    );
+
                 ";
 
                 cmd.ExecuteNonQuery();
