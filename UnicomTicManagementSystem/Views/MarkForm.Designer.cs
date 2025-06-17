@@ -42,13 +42,14 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(193, 134);
+            this.label1.Location = new System.Drawing.Point(128, 137);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 16);
@@ -58,7 +59,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(193, 181);
+            this.label2.Location = new System.Drawing.Point(128, 184);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 16);
@@ -68,7 +69,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(193, 229);
+            this.label3.Location = new System.Drawing.Point(128, 232);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 16);
@@ -78,7 +79,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(193, 274);
+            this.label4.Location = new System.Drawing.Point(128, 277);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 16);
@@ -88,7 +89,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(193, 89);
+            this.label5.Location = new System.Drawing.Point(128, 92);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 16);
@@ -97,8 +98,8 @@
             // 
             // txtStudentID
             // 
-            this.txtStudentID.Location = new System.Drawing.Point(368, 85);
-            this.txtStudentID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStudentID.Location = new System.Drawing.Point(303, 88);
+            this.txtStudentID.Margin = new System.Windows.Forms.Padding(4);
             this.txtStudentID.Name = "txtStudentID";
             this.txtStudentID.Size = new System.Drawing.Size(160, 22);
             this.txtStudentID.TabIndex = 5;
@@ -106,8 +107,8 @@
             // 
             // txtStudentName
             // 
-            this.txtStudentName.Location = new System.Drawing.Point(368, 130);
-            this.txtStudentName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStudentName.Location = new System.Drawing.Point(303, 133);
+            this.txtStudentName.Margin = new System.Windows.Forms.Padding(4);
             this.txtStudentName.Name = "txtStudentName";
             this.txtStudentName.Size = new System.Drawing.Size(160, 22);
             this.txtStudentName.TabIndex = 6;
@@ -115,8 +116,8 @@
             // comboSubject
             // 
             this.comboSubject.FormattingEnabled = true;
-            this.comboSubject.Location = new System.Drawing.Point(368, 177);
-            this.comboSubject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboSubject.Location = new System.Drawing.Point(303, 180);
+            this.comboSubject.Margin = new System.Windows.Forms.Padding(4);
             this.comboSubject.Name = "comboSubject";
             this.comboSubject.Size = new System.Drawing.Size(160, 24);
             this.comboSubject.TabIndex = 7;
@@ -124,24 +125,24 @@
             // comboExam
             // 
             this.comboExam.FormattingEnabled = true;
-            this.comboExam.Location = new System.Drawing.Point(368, 225);
-            this.comboExam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboExam.Location = new System.Drawing.Point(303, 228);
+            this.comboExam.Margin = new System.Windows.Forms.Padding(4);
             this.comboExam.Name = "comboExam";
             this.comboExam.Size = new System.Drawing.Size(160, 24);
             this.comboExam.TabIndex = 8;
             // 
             // txtScore
             // 
-            this.txtScore.Location = new System.Drawing.Point(368, 266);
-            this.txtScore.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtScore.Location = new System.Drawing.Point(303, 269);
+            this.txtScore.Margin = new System.Windows.Forms.Padding(4);
             this.txtScore.Name = "txtScore";
             this.txtScore.Size = new System.Drawing.Size(160, 22);
             this.txtScore.TabIndex = 9;
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(175, 319);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Location = new System.Drawing.Point(110, 322);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(100, 28);
             this.btnDelete.TabIndex = 10;
@@ -151,8 +152,8 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(327, 319);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdate.Location = new System.Drawing.Point(262, 322);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(100, 28);
             this.btnUpdate.TabIndex = 11;
@@ -162,8 +163,8 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(476, 319);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Location = new System.Drawing.Point(411, 322);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 28);
             this.btnAdd.TabIndex = 12;
@@ -174,19 +175,30 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(175, 366);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(110, 369);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(401, 185);
             this.dataGridView1.TabIndex = 13;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(92, 26);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(430, 32);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "MANAGE STUDENTS MARKS ";
+            // 
             // MarkForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 581);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnUpdate);
@@ -202,7 +214,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MarkForm";
             this.Text = "MarkForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -227,5 +239,6 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label6;
     }
 }

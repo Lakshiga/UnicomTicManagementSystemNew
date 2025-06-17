@@ -63,6 +63,11 @@ namespace UnicomTicManagementSystem.Views
             }
         }
 
+        private void btnSearch_Click_1(object sender, EventArgs e)
+        {
+            string keyword = txtSearch.Text.Trim();
+            dgvTeachers.DataSource = _controller.SearchTeachers(keyword);
+        }
 
         private void dgvTeachers_SelectionChanged(object sender, EventArgs e)
         {
@@ -88,49 +93,16 @@ namespace UnicomTicManagementSystem.Views
                 Phone = txtPhone.Text,
                 Address = txtAddress.Text
             };
+
             _controller.AddTeacher(teacher);
+
+            if (!string.IsNullOrWhiteSpace(txtUsername.Text) && !string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                _controller.AddUser(txtUsername.Text, txtPassword.Text, "Lecture");
+            }
+
             LoadTeachers();
             ClearInputs();
-
-        }
-
-        private void TeacherForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPhone_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtAddress_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvTeachers_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
         }
     }

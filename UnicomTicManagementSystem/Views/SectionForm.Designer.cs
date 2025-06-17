@@ -30,19 +30,20 @@
         {
             this.dgvSections = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.secSearch = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.search = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.secName = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.add = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.txtName = new System.Windows.Forms.Label();
+            this.secName = new System.Windows.Forms.TextBox();
+            this.secSearch = new System.Windows.Forms.TextBox();
+            this.add = new System.Windows.Forms.Button();
             this.update = new System.Windows.Forms.Button();
+            this.search = new System.Windows.Forms.Button();
             this.delete = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSections)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +51,7 @@
             // 
             this.dgvSections.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSections.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSections.Location = new System.Drawing.Point(226, 247);
+            this.dgvSections.Location = new System.Drawing.Point(106, 264);
             this.dgvSections.Name = "dgvSections";
             this.dgvSections.RowHeadersWidth = 51;
             this.dgvSections.RowTemplate.Height = 24;
@@ -62,40 +63,23 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(197, 60);
+            this.label1.Location = new System.Drawing.Point(94, 85);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 16);
             this.label1.TabIndex = 22;
             this.label1.Text = "SECTION NAME :";
             // 
-            // txtName
-            // 
-            this.txtName.AutoSize = true;
-            this.txtName.Location = new System.Drawing.Point(197, 60);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(114, 16);
-            this.txtName.TabIndex = 23;
-            this.txtName.Text = "SECTION NAME :";
-            // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(349, 173);
+            this.textBox2.Location = new System.Drawing.Point(246, 198);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(255, 22);
             this.textBox2.TabIndex = 20;
             // 
-            // secSearch
-            // 
-            this.secSearch.Location = new System.Drawing.Point(349, 173);
-            this.secSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.secSearch.Name = "secSearch";
-            this.secSearch.Size = new System.Drawing.Size(255, 22);
-            this.secSearch.TabIndex = 21;
-            // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(200, 165);
+            this.button4.Location = new System.Drawing.Point(97, 190);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(84, 32);
@@ -104,36 +88,18 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // search
-            // 
-            this.search.Location = new System.Drawing.Point(200, 165);
-            this.search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(84, 32);
-            this.search.TabIndex = 19;
-            this.search.Text = "SEARCH";
-            this.search.UseVisualStyleBackColor = true;
-            // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(349, 54);
+            this.textBox1.Location = new System.Drawing.Point(246, 79);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(255, 22);
             this.textBox1.TabIndex = 16;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // secName
-            // 
-            this.secName.Location = new System.Drawing.Point(349, 54);
-            this.secName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.secName.Name = "secName";
-            this.secName.Size = new System.Drawing.Size(255, 22);
-            this.secName.TabIndex = 17;
-            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(517, 111);
+            this.button3.Location = new System.Drawing.Point(414, 136);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(85, 33);
@@ -142,19 +108,9 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
-            // add
-            // 
-            this.add.Location = new System.Drawing.Point(517, 111);
-            this.add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.add.Name = "add";
-            this.add.Size = new System.Drawing.Size(85, 33);
-            this.add.TabIndex = 15;
-            this.add.Text = "ADD";
-            this.add.UseVisualStyleBackColor = true;
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(360, 111);
+            this.button2.Location = new System.Drawing.Point(257, 136);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(83, 32);
@@ -165,7 +121,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(200, 111);
+            this.button1.Location = new System.Drawing.Point(97, 136);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 32);
@@ -174,9 +130,44 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // txtName
+            // 
+            this.txtName.AutoSize = true;
+            this.txtName.Location = new System.Drawing.Point(94, 85);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(114, 16);
+            this.txtName.TabIndex = 23;
+            this.txtName.Text = "SECTION NAME :";
+            // 
+            // secName
+            // 
+            this.secName.Location = new System.Drawing.Point(246, 79);
+            this.secName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.secName.Name = "secName";
+            this.secName.Size = new System.Drawing.Size(255, 22);
+            this.secName.TabIndex = 17;
+            // 
+            // secSearch
+            // 
+            this.secSearch.Location = new System.Drawing.Point(246, 198);
+            this.secSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.secSearch.Name = "secSearch";
+            this.secSearch.Size = new System.Drawing.Size(255, 22);
+            this.secSearch.TabIndex = 21;
+            // 
+            // add
+            // 
+            this.add.Location = new System.Drawing.Point(414, 136);
+            this.add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.add.Name = "add";
+            this.add.Size = new System.Drawing.Size(85, 33);
+            this.add.TabIndex = 15;
+            this.add.Text = "ADD";
+            this.add.UseVisualStyleBackColor = true;
+            // 
             // update
             // 
-            this.update.Location = new System.Drawing.Point(360, 111);
+            this.update.Location = new System.Drawing.Point(257, 136);
             this.update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(83, 32);
@@ -184,9 +175,19 @@
             this.update.Text = "UPDATE";
             this.update.UseVisualStyleBackColor = true;
             // 
+            // search
+            // 
+            this.search.Location = new System.Drawing.Point(97, 190);
+            this.search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(84, 32);
+            this.search.TabIndex = 19;
+            this.search.Text = "SEARCH";
+            this.search.UseVisualStyleBackColor = true;
+            // 
             // delete
             // 
-            this.delete.Location = new System.Drawing.Point(200, 111);
+            this.delete.Location = new System.Drawing.Point(97, 136);
             this.delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(85, 32);
@@ -194,11 +195,22 @@
             this.delete.Text = "DELETE";
             this.delete.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(164, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(288, 32);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "CREATE COURSES";
+            // 
             // SectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvSections);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtName);
@@ -226,18 +238,19 @@
 
         private System.Windows.Forms.DataGridView dgvSections;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label txtName;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox secSearch;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button search;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox secName;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button add;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label txtName;
+        private System.Windows.Forms.TextBox secName;
+        private System.Windows.Forms.TextBox secSearch;
+        private System.Windows.Forms.Button add;
         private System.Windows.Forms.Button update;
+        private System.Windows.Forms.Button search;
         private System.Windows.Forms.Button delete;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -24,5 +24,17 @@ namespace UnicomTicManagementSystem.Controllers
         public void UpdateTeacher(Teacher teacher) => _teacherService.Update(teacher);
 
         public void DeleteTeacher(int teacherId) => _teacherService.Delete(teacherId);
+
+        public void AddUser(string username, string password, string role)
+        {
+            _teacherService.AddUser(username, password, role);
+        }
+
+        public List<Teacher> SearchTeachers(string keyword)
+        {
+            return _teacherService.SearchTeachers(keyword);
+        }
+
     }
+
 }

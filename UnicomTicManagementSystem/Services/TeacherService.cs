@@ -23,6 +23,46 @@ namespace UnicomTicManagementSystem.Services
             }
         }
 
+        public void AddUser(string username, string password, string role)
+        {
+            using (var conn = DbCon.GetConnection())
+            {
+                var cmd = conn.CreateCommand();
+                cmd.CommandText = "INSERT INTO Users (Username, Password, Role) VALUES (@username, @password, @role)";
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@password", password);
+                cmd.Parameters.AddWithValue("@role", role);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public List<Teacher> SearchTeachers(string keyword)
+        {
+            var teachers = new List<Teacher>();
+            using (var conn = DbCon.GetConnection())
+            {
+                var cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT * FROM Teachers WHERE Name LIKE @kw OR Phone LIKE @kw OR Address LIKE @kw";
+                cmd.Parameters.AddWithValue("@kw", "%" + keyword + "%");
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        teachers.Add(new Teacher
+                        {
+                            Id = reader.GetInt32(0),
+                            Name = reader.GetString(1),
+                            Phone = reader.GetString(2),
+                            Address = reader.GetString(3)
+                        });
+                    }
+                }
+            }
+            return teachers;
+        }
+
+
         public List<Teacher> GetAll()
         {
             var teachers = new List<Teacher>();

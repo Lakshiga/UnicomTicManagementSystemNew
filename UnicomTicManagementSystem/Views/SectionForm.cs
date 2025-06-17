@@ -122,5 +122,20 @@ namespace UnicomTicManagementSystem.Views
         {
 
         }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void search_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void update_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
