@@ -101,7 +101,7 @@ namespace UnicomTicManagementSystem.Views
 
         private void button6_Click_1(object sender, EventArgs e)
         {
-            LoadFormInPanel(new TimeTableForm());
+            LoadFormInPanel(new TimeTableForm(userRole));
         }
 
         private void button7_Click(object sender, EventArgs e)

@@ -38,12 +38,13 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblStream = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(233, 101);
+            this.label1.Location = new System.Drawing.Point(196, 87);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(139, 16);
             this.label1.TabIndex = 0;
@@ -52,7 +53,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(233, 151);
+            this.label2.Location = new System.Drawing.Point(196, 137);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 16);
             this.label2.TabIndex = 1;
@@ -61,7 +62,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(230, 199);
+            this.label3.Location = new System.Drawing.Point(193, 185);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 16);
             this.label3.TabIndex = 2;
@@ -70,7 +71,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(233, 252);
+            this.label4.Location = new System.Drawing.Point(196, 238);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 16);
             this.label4.TabIndex = 3;
@@ -79,7 +80,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(233, 299);
+            this.label5.Location = new System.Drawing.Point(196, 285);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(132, 16);
             this.label5.TabIndex = 4;
@@ -88,7 +89,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(395, 101);
+            this.lblName.Location = new System.Drawing.Point(358, 87);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(41, 16);
             this.lblName.TabIndex = 5;
@@ -98,7 +99,7 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(395, 151);
+            this.lblUsername.Location = new System.Drawing.Point(358, 137);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(67, 16);
             this.lblUsername.TabIndex = 6;
@@ -107,7 +108,7 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(395, 199);
+            this.lblPassword.Location = new System.Drawing.Point(358, 185);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(66, 16);
             this.lblPassword.TabIndex = 7;
@@ -116,7 +117,7 @@
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(395, 252);
+            this.lblAddress.Location = new System.Drawing.Point(358, 238);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(57, 16);
             this.lblAddress.TabIndex = 8;
@@ -125,18 +126,29 @@
             // lblStream
             // 
             this.lblStream.AutoSize = true;
-            this.lblStream.Location = new System.Drawing.Point(395, 299);
+            this.lblStream.Location = new System.Drawing.Point(358, 285);
             this.lblStream.Name = "lblStream";
             this.lblStream.Size = new System.Drawing.Size(50, 16);
             this.lblStream.TabIndex = 9;
             this.lblStream.Text = "section";
             this.lblStream.Click += new System.EventHandler(this.lblStream_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(57, 26);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(557, 32);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "WELCOME TO STUDENT DASHBOARD";
+            // 
             // StudentDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.lblStream);
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblPassword);
@@ -168,5 +180,6 @@
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Label lblStream;
+        private System.Windows.Forms.Label label6;
     }
 }

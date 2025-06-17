@@ -111,5 +111,53 @@ namespace UnicomTicManagementSystem.Services
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public List<Section> GetAllSections()
+        {
+            var sections = new List<Section>();
+            using (var conn = DbCon.GetConnection())
+            {
+                var cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT * FROM Sections";
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        sections.Add(new Section
+                        {
+                            Id = reader.GetInt32(0),
+                            Name = reader.GetString(1)
+                        });
+                    }
+                }
+            }
+            return sections;
+        }
+
+        public int AddWithReturnId(Teacher teacher)
+        {
+            using (var conn = DbCon.GetConnection())
+            {
+                var cmd = conn.CreateCommand();
+                cmd.CommandText = "INSERT INTO Teachers (Name, Phone, Address) VALUES (@name, @phone, @address); SELECT last_insert_rowid();";
+                cmd.Parameters.AddWithValue("@name", teacher.Name);
+                cmd.Parameters.AddWithValue("@phone", teacher.Phone);
+                cmd.Parameters.AddWithValue("@address", teacher.Address);
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
+
+        public void AssignSectionToTeacher(int teacherId, int sectionId)
+        {
+            using (var conn = DbCon.GetConnection())
+            {
+                var cmd = conn.CreateCommand();
+                cmd.CommandText = "INSERT OR REPLACE INTO TeacherSection (TeacherId, SectionId) VALUES (@tid, @sid)";
+                cmd.Parameters.AddWithValue("@tid", teacherId);
+                cmd.Parameters.AddWithValue("@sid", sectionId);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
     }
 }

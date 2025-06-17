@@ -35,6 +35,12 @@ namespace UnicomTicManagementSystem.Controllers
             return _teacherService.SearchTeachers(keyword);
         }
 
+        public List<Section> GetAllSections() => _teacherService.GetAllSections();
+
+        public int AddTeacherWithReturnId(Teacher teacher) => _teacherService.AddWithReturnId(teacher);
+
+        public void AssignSectionToTeacher(int teacherId, int sectionId) => _teacherService.AssignSectionToTeacher(teacherId, sectionId);
+
     }
 
 }

@@ -9,11 +9,13 @@ namespace UnicomTicManagementSystem.Views
     {
         private TimetableController controller = new TimetableController();
         private int selectedTimetableId = -1;
+        private string userRole;
 
-        public TimeTableForm()
+        public TimeTableForm(string role = "Admin")
         {
             InitializeComponent();
-            LoadSubjects(); 
+            userRole = role;
+            LoadSubjects();
         }
 
         private void TimeTableForm_Load(object sender, EventArgs e)
@@ -21,6 +23,7 @@ namespace UnicomTicManagementSystem.Views
             LoadTimetableData();
             LoadSubjects();
             LoadRooms();
+            ApplyRolePermissions();
         }
 
         private void LoadSubjects()
@@ -30,6 +33,16 @@ namespace UnicomTicManagementSystem.Views
             foreach (DataRow row in dt.Rows)
             {
                 comboSubject.Items.Add(row["SubjectName"].ToString());
+            }
+        }
+
+        private void LoadRooms()
+        {
+            comboRoom.Items.Clear();
+            DataTable dt = controller.GetRooms();
+            foreach (DataRow row in dt.Rows)
+            {
+                comboRoom.Items.Add(row["RoomName"].ToString());
             }
         }
 
@@ -46,23 +59,35 @@ namespace UnicomTicManagementSystem.Views
             selectedTimetableId = -1;
             datePicker.Value = DateTime.Today;
             comboRoom.Items.Clear();
-            DataTable dt = controller.GetRooms();
-            foreach (DataRow row in dt.Rows)
-            {
-                comboRoom.Items.Add(row["RoomName"].ToString());
-            }
+            LoadRooms();
         }
 
-        private void LoadRooms()
+        private void ApplyRolePermissions()
         {
-            comboRoom.Items.Clear();
-            DataTable dt = controller.GetRooms();
-            foreach (DataRow row in dt.Rows)
+            if (userRole.ToLower() == "lecture" || userRole.ToLower() == "staff")
             {
-                comboRoom.Items.Add(row["RoomName"].ToString());
+                // Hide all controls except the DataGridView
+                comboSubject.Visible = false;
+                comboRoom.Visible = false;
+                txtTimeSlot.Visible = false;
+                textBox1.Visible = false;
+                datePicker.Visible = false;
+                btnAdd.Visible = false;
+                btnUpdate.Visible = false;
+                btnDelete.Visible = false;
+                btnPickDate.Visible = false;
+
+                // Also hide associated labels (adjust label names based on your form)
+                label5.Visible = false;
+                label3.Visible = false;
+                label2.Visible = false;
+                label4.Visible = false;
+                label6.Visible = false;
+
+                // Expand the DataGridView to fill the form
+                dataGridView1.Dock = DockStyle.Fill;
             }
         }
-
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -72,7 +97,6 @@ namespace UnicomTicManagementSystem.Views
                 return;
             }
 
-            // Ensure a date is picked
             DateTime selectedDate = datePicker.Value;
 
             controller.AddTimetable(
@@ -87,7 +111,6 @@ namespace UnicomTicManagementSystem.Views
             ClearForm();
         }
 
-
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (selectedTimetableId == -1)
@@ -96,7 +119,6 @@ namespace UnicomTicManagementSystem.Views
                 return;
             }
 
-            // Ensure a date is picked
             DateTime selectedDate = datePicker.Value;
 
             controller.UpdateTimetable(
@@ -112,8 +134,20 @@ namespace UnicomTicManagementSystem.Views
             ClearForm();
         }
 
+        private void btnDelete_Click_1(object sender, EventArgs e)
+        {
+            if (selectedTimetableId == -1)
+            {
+                MessageBox.Show("Select a record to delete.");
+                return;
+            }
 
+            controller.DeleteTimetable(selectedTimetableId);
 
+            MessageBox.Show("Timetable deleted.");
+            LoadTimetableData();
+            ClearForm();
+        }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -124,23 +158,8 @@ namespace UnicomTicManagementSystem.Views
                 comboSubject.SelectedItem = row.Cells["Subject"].Value.ToString();
                 txtTimeSlot.Text = row.Cells["TimeSlot"].Value.ToString();
                 comboRoom.Text = row.Cells["Room"].Value.ToString();
-            }
-        }
-
-        private void btnDelete_Click_1(object sender, EventArgs e)
-        {
-            {
-                if (selectedTimetableId == -1)
-                {
-                    MessageBox.Show("Select a record to delete.");
-                    return;
-                }
-
-                controller.DeleteTimetable(selectedTimetableId);
-
-                MessageBox.Show("Timetable deleted.");
-                LoadTimetableData();
-                ClearForm();
+                textBox1.Text = Convert.ToDateTime(row.Cells["Date"].Value).ToString("yyyy-MM-dd");
+                datePicker.Value = Convert.ToDateTime(row.Cells["Date"].Value);
             }
         }
 
@@ -156,9 +175,6 @@ namespace UnicomTicManagementSystem.Views
             datePicker.Visible = false;
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void label5_Click(object sender, EventArgs e) { }
     }
 }

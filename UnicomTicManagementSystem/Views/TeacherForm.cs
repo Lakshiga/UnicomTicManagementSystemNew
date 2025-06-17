@@ -1,13 +1,10 @@
-﻿ using UnicomTicManagementSystem.Controllers;
+﻿// TeacherForm.cs
+using UnicomTicManagementSystem.Controllers;
 using UnicomTicManagementSystem.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UnicomTicManagementSystem.Views
@@ -16,10 +13,12 @@ namespace UnicomTicManagementSystem.Views
     {
         private TeacherController _controller = new TeacherController();
         private int selectedTeacherId = -1;
+
         public TeacherForm()
         {
             InitializeComponent();
             LoadTeachers();
+            LoadSections();
         }
 
         private void LoadTeachers()
@@ -28,22 +27,45 @@ namespace UnicomTicManagementSystem.Views
             dgvTeachers.ClearSelection();
         }
 
+        private void LoadSections()
+        {
+            comboSection.DataSource = _controller.GetAllSections();
+            comboSection.DisplayMember = "Name";
+            comboSection.ValueMember = "Id";
+        }
+
         private void ClearInputs()
         {
             txtName.Text = "";
             txtPhone.Text = "";
             txtAddress.Text = "";
+            txtUsername.Text = "";
+            txtPassword.Text = "";
+            comboSection.SelectedIndex = -1;
             selectedTeacherId = -1;
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (selectedTeacherId != -1)
+            Teacher teacher = new Teacher
             {
-                _controller.DeleteTeacher(selectedTeacherId);
-                LoadTeachers();
-                ClearInputs();
+                Name = txtName.Text,
+                Phone = txtPhone.Text,
+                Address = txtAddress.Text
+            };
+
+            int teacherId = _controller.AddTeacherWithReturnId(teacher);
+
+            int sectionId = Convert.ToInt32(comboSection.SelectedValue);
+            _controller.AssignSectionToTeacher(teacherId, sectionId);
+
+            if (!string.IsNullOrWhiteSpace(txtUsername.Text) && !string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                _controller.AddUser(txtUsername.Text, txtPassword.Text, "Lecture");
             }
+
+            LoadTeachers();
+            ClearInputs();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -57,7 +79,22 @@ namespace UnicomTicManagementSystem.Views
                     Phone = txtPhone.Text,
                     Address = txtAddress.Text
                 };
+
                 _controller.UpdateTeacher(teacher);
+
+                int sectionId = Convert.ToInt32(comboSection.SelectedValue);
+                _controller.AssignSectionToTeacher(selectedTeacherId, sectionId);
+
+                LoadTeachers();
+                ClearInputs();
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (selectedTeacherId != -1)
+            {
+                _controller.DeleteTeacher(selectedTeacherId);
                 LoadTeachers();
                 ClearInputs();
             }
@@ -83,27 +120,6 @@ namespace UnicomTicManagementSystem.Views
                     txtAddress.Text = teacher.Address;
                 }
             }
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            Teacher teacher = new Teacher
-            {
-                Name = txtName.Text,
-                Phone = txtPhone.Text,
-                Address = txtAddress.Text
-            };
-
-            _controller.AddTeacher(teacher);
-
-            if (!string.IsNullOrWhiteSpace(txtUsername.Text) && !string.IsNullOrWhiteSpace(txtPassword.Text))
-            {
-                _controller.AddUser(txtUsername.Text, txtPassword.Text, "Lecture");
-            }
-
-            LoadTeachers();
-            ClearInputs();
-
         }
     }
 }
