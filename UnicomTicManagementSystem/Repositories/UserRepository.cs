@@ -152,5 +152,37 @@ namespace UnicomTicManagementSystem.Repositories
                 return count > 0;
             }
         }
+
+
+        public static bool ValidateUser(string username, string password)
+        {
+            using (var conn = DbCon.GetConnection())
+            {
+                string query = "SELECT COUNT(*) FROM Users WHERE Username = @Username AND Password = @Password";
+                using (var cmd = new SQLiteCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Username", username);
+                    cmd.Parameters.AddWithValue("@Password", password);
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
+                }
+            }
+        }
+
+        public static bool ResetUserPassword(string username, string newPassword)
+        {
+            using (var conn = DbCon.GetConnection())
+            {
+                string query = "UPDATE Users SET Password = @Password WHERE Username = @Username";
+                using (var cmd = new SQLiteCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Username", username);
+                    cmd.Parameters.AddWithValue("@Password", newPassword);
+                    int result = cmd.ExecuteNonQuery();
+                    return result > 0;
+                }
+            }
+        }
+
     }
 }

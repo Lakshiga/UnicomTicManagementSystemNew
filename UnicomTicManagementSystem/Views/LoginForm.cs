@@ -68,7 +68,7 @@ namespace UnicomTicManagementSystem.Views
                     case "admin":
                     case "staff":
                     case "lecture":
-                        var mainForm = new MainForm(user.Role); // Pass role to MainForm
+                        var mainForm = new MainForm(user.Role, username); // Pass role to MainForm
                         this.Hide();
                         mainForm.ShowDialog();
                         this.Show();

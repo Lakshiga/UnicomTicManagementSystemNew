@@ -49,8 +49,9 @@ namespace UnicomTicManagementSystem.Views
             this.lblTotalLectures = new System.Windows.Forms.Label();
             this.lblTotalStudents = new System.Windows.Forms.Label();
             this.flowSidebar = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.lblWelcome = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnResetPassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.performanceCounter1)).BeginInit();
             this.panel2.SuspendLayout();
             this.flowSidebar.SuspendLayout();
@@ -59,7 +60,7 @@ namespace UnicomTicManagementSystem.Views
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(13, 87);
+            this.button1.Location = new System.Drawing.Point(13, 92);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(212, 36);
@@ -70,7 +71,7 @@ namespace UnicomTicManagementSystem.Views
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(13, 127);
+            this.button2.Location = new System.Drawing.Point(13, 132);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(212, 37);
@@ -81,7 +82,7 @@ namespace UnicomTicManagementSystem.Views
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(13, 168);
+            this.button3.Location = new System.Drawing.Point(13, 173);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(212, 36);
@@ -92,7 +93,7 @@ namespace UnicomTicManagementSystem.Views
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(13, 246);
+            this.button4.Location = new System.Drawing.Point(13, 251);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(212, 36);
@@ -103,7 +104,7 @@ namespace UnicomTicManagementSystem.Views
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(13, 208);
+            this.button5.Location = new System.Drawing.Point(13, 213);
             this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(212, 34);
@@ -114,7 +115,7 @@ namespace UnicomTicManagementSystem.Views
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(13, 286);
+            this.button6.Location = new System.Drawing.Point(13, 291);
             this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(212, 34);
@@ -125,7 +126,7 @@ namespace UnicomTicManagementSystem.Views
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(13, 324);
+            this.button8.Location = new System.Drawing.Point(13, 329);
             this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(212, 34);
@@ -136,7 +137,7 @@ namespace UnicomTicManagementSystem.Views
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(13, 362);
+            this.button9.Location = new System.Drawing.Point(13, 367);
             this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(212, 30);
@@ -147,7 +148,7 @@ namespace UnicomTicManagementSystem.Views
             // 
             // btnlogout
             // 
-            this.btnlogout.Location = new System.Drawing.Point(13, 430);
+            this.btnlogout.Location = new System.Drawing.Point(13, 472);
             this.btnlogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnlogout.Name = "btnlogout";
             this.btnlogout.Size = new System.Drawing.Size(212, 30);
@@ -158,7 +159,7 @@ namespace UnicomTicManagementSystem.Views
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(13, 396);
+            this.button7.Location = new System.Drawing.Point(13, 401);
             this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(212, 30);
@@ -190,7 +191,6 @@ namespace UnicomTicManagementSystem.Views
             this.lblTotalSubjects.Size = new System.Drawing.Size(196, 168);
             this.lblTotalSubjects.TabIndex = 3;
             this.lblTotalSubjects.Text = "    TOTAL \r\nSUBJECTS :\r\n      NO";
-            this.lblTotalSubjects.Click += new System.EventHandler(this.label5_Click);
             // 
             // lblTotalCourses
             // 
@@ -226,7 +226,6 @@ namespace UnicomTicManagementSystem.Views
             this.lblTotalStudents.Size = new System.Drawing.Size(208, 170);
             this.lblTotalStudents.TabIndex = 0;
             this.lblTotalStudents.Text = "    TOTAL \r\nSTUDENTS:\r\n      NO";
-            this.lblTotalStudents.Click += new System.EventHandler(this.label2_Click);
             // 
             // flowSidebar
             // 
@@ -241,15 +240,29 @@ namespace UnicomTicManagementSystem.Views
             this.flowSidebar.Controls.Add(this.button8);
             this.flowSidebar.Controls.Add(this.button9);
             this.flowSidebar.Controls.Add(this.button7);
+            this.flowSidebar.Controls.Add(this.btnResetPassword);
             this.flowSidebar.Controls.Add(this.btnlogout);
             this.flowSidebar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowSidebar.Location = new System.Drawing.Point(14, 37);
+            this.flowSidebar.Location = new System.Drawing.Point(14, 19);
             this.flowSidebar.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
             this.flowSidebar.Name = "flowSidebar";
             this.flowSidebar.Padding = new System.Windows.Forms.Padding(10);
-            this.flowSidebar.Size = new System.Drawing.Size(240, 493);
+            this.flowSidebar.Size = new System.Drawing.Size(240, 511);
             this.flowSidebar.TabIndex = 12;
             this.flowSidebar.WrapContents = false;
+            // 
+            // lblWelcome
+            // 
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.ForeColor = System.Drawing.Color.Black;
+            this.lblWelcome.Location = new System.Drawing.Point(20, 20);
+            this.lblWelcome.Margin = new System.Windows.Forms.Padding(10);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Padding = new System.Windows.Forms.Padding(5);
+            this.lblWelcome.Size = new System.Drawing.Size(142, 60);
+            this.lblWelcome.TabIndex = 13;
+            this.lblWelcome.Text = "Welcome to \r\nDashboard";
             // 
             // panel1
             // 
@@ -262,19 +275,16 @@ namespace UnicomTicManagementSystem.Views
             this.panel1.Size = new System.Drawing.Size(267, 549);
             this.panel1.TabIndex = 8;
             // 
-            // lblWelcome
+            // btnResetPassword
             // 
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.Location = new System.Drawing.Point(13, 10);
-            this.lblWelcome.ForeColor = System.Drawing.Color.Black;
-            this.lblWelcome.Margin = new Padding(10);
-            this.lblWelcome.Padding = new Padding(5);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(132, 75);
-            this.lblWelcome.TabIndex = 13;
-            this.lblWelcome.Text = "Welcome to \r\nDashboard\r\n\r\n";
-            this.lblWelcome.Click += new System.EventHandler(this.lblWelcome_Click);
+            this.btnResetPassword.Location = new System.Drawing.Point(13, 435);
+            this.btnResetPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnResetPassword.Name = "btnResetPassword";
+            this.btnResetPassword.Size = new System.Drawing.Size(212, 33);
+            this.btnResetPassword.TabIndex = 14;
+            this.btnResetPassword.Text = "Reset Password";
+            this.btnResetPassword.UseVisualStyleBackColor = true;
+            this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
             // 
             // MainForm
             // 
@@ -316,5 +326,6 @@ namespace UnicomTicManagementSystem.Views
         private System.Windows.Forms.FlowLayoutPanel flowSidebar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblWelcome;
+        private Button btnResetPassword;
     }
 }

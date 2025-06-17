@@ -10,11 +10,6 @@ namespace UnicomTicManagementSystem.Views
         private string username;
         private Student student;
 
-        public StudentDashboard()
-        {
-            InitializeComponent();
-        }
-
         public StudentDashboard(string username)
         {
             InitializeComponent();
@@ -72,5 +67,12 @@ namespace UnicomTicManagementSystem.Views
         private void lblName_Click(object sender, EventArgs e) { }
 
         private void lblStream_Click(object sender, EventArgs e) { }
+
+        private void btnResetPassword_Click(object sender, EventArgs e)
+        {
+            ResetPasswordForm resetForm = new ResetPasswordForm(username);
+            resetForm.ShowDialog();
+        }
+
     }
 }

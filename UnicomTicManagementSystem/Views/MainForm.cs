@@ -15,6 +15,8 @@ namespace UnicomTicManagementSystem.Views
     public partial class MainForm : Form
     {
         private string userRole;
+        private string currentLoggedInUsername;
+
 
         public MainForm()
         {
@@ -22,12 +24,14 @@ namespace UnicomTicManagementSystem.Views
             LoadDashboardCounts();
         }
 
-        public MainForm(string role) : this()
+        public MainForm(string role, string username) : this()
         {
             userRole = role;
+            currentLoggedInUsername = username;
             lblWelcome.Text = $"Welcome to {userRole} Dashboard";
             ApplyRoleAccess();
         }
+
 
         private void ApplyRoleAccess()
         {
@@ -48,17 +52,20 @@ namespace UnicomTicManagementSystem.Views
                 flowSidebar.Controls.Add(button6); // Timetable
                 flowSidebar.Controls.Add(button8); // Exam
                 flowSidebar.Controls.Add(button9); // Room
+                flowSidebar.Controls.Add(btnResetPassword); // Reset
             }
             else if (userRole.ToLower() == "staff")
             {
                 flowSidebar.Controls.Add(button6); // Timetable
                 flowSidebar.Controls.Add(button7); // Marks
                 flowSidebar.Controls.Add(button8); // Exam
+                flowSidebar.Controls.Add(btnResetPassword); // Reset
             }
             else if (userRole.ToLower() == "lecture")
             {
                 flowSidebar.Controls.Add(button6); // Timetable
                 flowSidebar.Controls.Add(button7); // Marks
+                flowSidebar.Controls.Add(btnResetPassword); // Reset
             }
 
             // Always add Logout at the bottom
@@ -119,6 +126,11 @@ namespace UnicomTicManagementSystem.Views
             LoadFormInPanel(new RoomForm());
         }
 
+        private void btnResetPassword_Click(object sender, EventArgs e)
+        {
+            LoadFormInPanel(new ResetPasswordForm(currentLoggedInUsername));
+        }
+
         private void btnlogout_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -147,14 +159,6 @@ namespace UnicomTicManagementSystem.Views
                 var cmd4 = new SQLiteCommand("SELECT COUNT(*) FROM Subjects", conn);
                 lblTotalSubjects.Text = "TOTAL \nSUBJECTS:\n⚫" + cmd4.ExecuteScalar().ToString();
             }
-        }
-
-        private void label2_Click(object sender, EventArgs e) { }
-        private void label5_Click(object sender, EventArgs e) { }
-
-        private void lblWelcome_Click(object sender, EventArgs e)
-        {
-
-        }
+        }        
     }
 }
