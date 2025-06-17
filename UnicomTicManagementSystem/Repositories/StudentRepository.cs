@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Data;
-using System.Data.SqlClient;
-using UnicomTicManagementSystem.Models;
 using System.Data.SQLite;
+using UnicomTicManagementSystem.Models;
 using UnicomTicManagementSystem.Data;
+using System.Collections.Generic;
 
 namespace UnicomTicManagementSystem.Repositories
 {
     public static class StudentRepository
     {
-        // ✅ Make sure this is your actual DB name
-        
-
         public static Student GetStudentById(int id)
         {
             Student student = null;
@@ -46,9 +43,7 @@ namespace UnicomTicManagementSystem.Repositories
 
             using (SQLiteConnection conn = DbCon.GetConnection())
             {
-                
-
-                // 1. Get user by username
+                // Step 1: Get user by username
                 string userQuery = "SELECT Id FROM Users WHERE Username = @Username";
 
                 int userId = -1;
@@ -62,14 +57,13 @@ namespace UnicomTicManagementSystem.Repositories
                         return null; // user not found
                 }
 
-                // 2. Get student by UserId
+                // Step 2: Get student by UserId
                 string studentQuery = @"
-                                        SELECT s.*, u.Username, u.Password, sec.Name AS SectionName
-                                        FROM Students s
-                                        INNER JOIN Users u ON s.UserId = u.Id
-                                        LEFT JOIN Sections sec ON s.SectionId = sec.Id
-                                        WHERE s.UserId = @UserId";
-
+                    SELECT s.*, u.Username, u.Password, sec.Name AS SectionName
+                    FROM Students s
+                    INNER JOIN Users u ON s.UserId = u.Id
+                    LEFT JOIN Sections sec ON s.SectionId = sec.Id
+                    WHERE s.UserId = @UserId";
 
                 using (SQLiteCommand cmd = new SQLiteCommand(studentQuery, conn))
                 {
@@ -85,6 +79,84 @@ namespace UnicomTicManagementSystem.Repositories
             }
 
             return student;
+        }
+
+        public static List<string> GetSubjectsBySectionName(string sectionName)
+        {
+            List<string> subjects = new List<string>();
+
+            using (var conn = DbCon.GetConnection())
+            {
+                string query = @"
+                    SELECT sub.SubjectName
+                    FROM Subjects sub
+                    INNER JOIN Sections sec ON sub.SectionId = sec.Id
+                    WHERE sec.Name = @SectionName";
+
+                using (var cmd = new SQLiteCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@SectionName", sectionName);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            subjects.Add(reader.GetString(0));
+                        }
+                    }
+                }
+            }
+
+            return subjects;
+        }
+
+        public static DataTable GetTimetableBySection(string sectionName)
+        {
+            DataTable dt = new DataTable();
+
+            using (var conn = DbCon.GetConnection())
+            {
+                string query = "SELECT Date AS Day, TimeSlot, Subject, Room FROM Timetable;";
+
+                using (var cmd = new SQLiteCommand(query, conn))
+                {
+                    using (var adapter = new SQLiteDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+            }
+
+            return dt;
+        }
+
+
+
+
+        public static DataTable GetExamMarksByUsername(string username)
+        {
+            DataTable dt = new DataTable();
+
+            using (var conn = DbCon.GetConnection())
+            {
+                string query = @"
+                    SELECT m.Exam AS Exam, m.Subject AS Subject, m.Score AS Marks
+                    FROM Marks m
+                    INNER JOIN Students s ON m.StudentID = s.Id
+                    INNER JOIN Users u ON s.UserId = u.Id
+                    WHERE u.Username = @Username";
+
+                using (var cmd = new SQLiteCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Username", username);
+                    using (var adapter = new SQLiteDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+            }
+
+            return dt;
         }
 
 
@@ -105,7 +177,6 @@ namespace UnicomTicManagementSystem.Repositories
             };
         }
 
-
         private static bool ColumnExists(SQLiteDataReader reader, string columnName)
         {
             for (int i = 0; i < reader.FieldCount; i++)
@@ -115,7 +186,5 @@ namespace UnicomTicManagementSystem.Repositories
             }
             return false;
         }
-
-
     }
 }
