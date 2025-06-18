@@ -136,7 +136,6 @@ namespace UnicomTicManagementSystem.Repositories
         public static DataTable GetExamMarksByUsername(string username)
         {
             DataTable dt = new DataTable();
-
             using (var conn = DbCon.GetConnection())
             {
                 string query = @"
@@ -145,7 +144,6 @@ namespace UnicomTicManagementSystem.Repositories
                     INNER JOIN Students s ON m.StudentID = s.Id
                     INNER JOIN Users u ON s.UserId = u.Id
                     WHERE u.Username = @Username";
-
                 using (var cmd = new SQLiteCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@Username", username);
@@ -155,11 +153,37 @@ namespace UnicomTicManagementSystem.Repositories
                     }
                 }
             }
-
             return dt;
         }
 
 
+
+        public static DataTable GetAttendanceByUsername(string username)
+        {
+            DataTable dt = new DataTable();
+            using (var conn = DbCon.GetConnection())
+            {
+                string query = @"
+                    SELECT 
+                        A.Date,
+                        S.SubjectName,
+                        A.Status
+                    FROM Attendance A
+                    INNER JOIN Students St ON A.StudentID = St.Id
+                    INNER JOIN Subjects S ON A.SubjectID = S.SubjectID
+                    INNER JOIN Users U ON St.UserId = U.Id
+                    WHERE u.Username = @Username";
+                using (var cmd = new SQLiteCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Username", username);
+                    using (var adapter = new SQLiteDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+            }
+            return dt;
+        }
 
         private static Student MapStudentFromReader(SQLiteDataReader reader)
         {

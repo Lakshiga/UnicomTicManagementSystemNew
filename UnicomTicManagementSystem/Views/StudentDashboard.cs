@@ -74,5 +74,12 @@ namespace UnicomTicManagementSystem.Views
             resetForm.ShowDialog();
         }
 
+        private void btnViewAttendance_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(username))
+            {
+                dataGridView1.DataSource = StudentRepository.GetAttendanceByUsername(username);
+            }
+        }
     }
 }

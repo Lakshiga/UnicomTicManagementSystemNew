@@ -48,6 +48,7 @@
             this.btnResetPassword = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnViewAttendance = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -159,7 +160,7 @@
             this.btnTimetable.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTimetable.Location = new System.Drawing.Point(33, 143);
             this.btnTimetable.Name = "btnTimetable";
-            this.btnTimetable.Size = new System.Drawing.Size(129, 23);
+            this.btnTimetable.Size = new System.Drawing.Size(129, 36);
             this.btnTimetable.TabIndex = 11;
             this.btnTimetable.Text = "Time Table\r\n";
             this.btnTimetable.UseVisualStyleBackColor = true;
@@ -170,7 +171,7 @@
             this.btnExamMarks.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExamMarks.Location = new System.Drawing.Point(33, 189);
             this.btnExamMarks.Name = "btnExamMarks";
-            this.btnExamMarks.Size = new System.Drawing.Size(129, 23);
+            this.btnExamMarks.Size = new System.Drawing.Size(129, 32);
             this.btnExamMarks.TabIndex = 12;
             this.btnExamMarks.Text = "Exam Marks";
             this.btnExamMarks.UseVisualStyleBackColor = true;
@@ -179,7 +180,7 @@
             // btnLogout
             // 
             this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.Location = new System.Drawing.Point(33, 276);
+            this.btnLogout.Location = new System.Drawing.Point(33, 327);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(129, 23);
             this.btnLogout.TabIndex = 13;
@@ -208,6 +209,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel1.Controls.Add(this.btnViewAttendance);
             this.panel1.Controls.Add(this.btnResetPassword);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.btnTimetable);
@@ -224,7 +226,7 @@
             this.btnResetPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResetPassword.Location = new System.Drawing.Point(33, 235);
             this.btnResetPassword.Name = "btnResetPassword";
-            this.btnResetPassword.Size = new System.Drawing.Size(129, 23);
+            this.btnResetPassword.Size = new System.Drawing.Size(129, 27);
             this.btnResetPassword.TabIndex = 14;
             this.btnResetPassword.Text = "Reset Password";
             this.btnResetPassword.UseVisualStyleBackColor = true;
@@ -239,6 +241,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(400, 111);
             this.dataGridView1.TabIndex = 17;
+            this.dataGridView1.Visible = true;
             // 
             // label8
             // 
@@ -249,6 +252,17 @@
             this.label8.Size = new System.Drawing.Size(198, 32);
             this.label8.TabIndex = 18;
             this.label8.Text = "MY DETAILS ";
+            // 
+            // btnViewAttendance
+            // 
+            this.btnViewAttendance.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewAttendance.Location = new System.Drawing.Point(33, 279);
+            this.btnViewAttendance.Name = "btnViewAttendance";
+            this.btnViewAttendance.Size = new System.Drawing.Size(129, 30);
+            this.btnViewAttendance.TabIndex = 15;
+            this.btnViewAttendance.Text = "Attendance";
+            this.btnViewAttendance.UseVisualStyleBackColor = true;
+            this.btnViewAttendance.Click += new System.EventHandler(this.btnViewAttendance_Click);
             // 
             // StudentDashboard
             // 
@@ -304,5 +318,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnResetPassword;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnViewAttendance;
     }
 }

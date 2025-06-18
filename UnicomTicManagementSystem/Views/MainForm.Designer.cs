@@ -249,7 +249,7 @@ namespace UnicomTicManagementSystem.Views
             this.flowSidebar.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
             this.flowSidebar.Name = "flowSidebar";
             this.flowSidebar.Padding = new System.Windows.Forms.Padding(10);
-            this.flowSidebar.Size = new System.Drawing.Size(248, 549);
+            this.flowSidebar.Size = new System.Drawing.Size(248, 559);
             this.flowSidebar.TabIndex = 12;
             this.flowSidebar.WrapContents = false;
             // 
