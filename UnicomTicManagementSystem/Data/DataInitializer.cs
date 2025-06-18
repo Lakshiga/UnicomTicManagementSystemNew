@@ -109,6 +109,18 @@ namespace UnicomTicManagementSystem.Data
                         FOREIGN KEY(StudentID) REFERENCES Students(StudentID)
                     );
 
+                    CREATE TABLE IF NOT EXISTS Attendance (
+                        AttendanceID INTEGER PRIMARY KEY AUTOINCREMENT,
+                        StudentID INTEGER NOT NULL,
+                        SubjectID INTEGER NOT NULL,
+                        Date TEXT NOT NULL,
+                        Status TEXT NOT NULL, -- ""Present"", ""Absent"", ""Late"", ""Excused""
+                        UNIQUE(StudentID, SubjectID, Date), -- To ensure only one record per day per subject
+                        FOREIGN KEY (StudentID) REFERENCES Students(ID),
+                        FOREIGN KEY (SubjectID) REFERENCES Subjects(SubjectID)
+                    );
+
+
                 ";
 
                 cmd.ExecuteNonQuery();

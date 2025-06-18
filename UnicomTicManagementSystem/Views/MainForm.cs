@@ -53,6 +53,7 @@ namespace UnicomTicManagementSystem.Views
                 flowSidebar.Controls.Add(button8); // Exam
                 flowSidebar.Controls.Add(button9); // Room
                 flowSidebar.Controls.Add(btnResetPassword); // Reset
+                flowSidebar.Controls.Add(button10); // Attendance
             }
             else if (userRole.ToLower() == "staff")
             {
@@ -60,12 +61,14 @@ namespace UnicomTicManagementSystem.Views
                 flowSidebar.Controls.Add(button7); // Marks
                 flowSidebar.Controls.Add(button8); // Exam
                 flowSidebar.Controls.Add(btnResetPassword); // Reset
+                flowSidebar.Controls.Add(button10); // Attendance
             }
             else if (userRole.ToLower() == "lecture")
             {
                 flowSidebar.Controls.Add(button6); // Timetable
                 flowSidebar.Controls.Add(button7); // Marks
                 flowSidebar.Controls.Add(btnResetPassword); // Reset
+                flowSidebar.Controls.Add(button10); // Attendance
             }
 
             // Always add Logout at the bottom
@@ -126,6 +129,11 @@ namespace UnicomTicManagementSystem.Views
             LoadFormInPanel(new RoomForm());
         }
 
+        private void button10_Click(object sender, EventArgs e)
+        {
+            LoadFormInPanel(new AttendanceForm());
+        }
+
         private void btnResetPassword_Click(object sender, EventArgs e)
         {
             LoadFormInPanel(new ResetPasswordForm(currentLoggedInUsername));
@@ -159,6 +167,6 @@ namespace UnicomTicManagementSystem.Views
                 var cmd4 = new SQLiteCommand("SELECT COUNT(*) FROM Subjects", conn);
                 lblTotalSubjects.Text = "TOTAL \nSUBJECTS:\n⚫" + cmd4.ExecuteScalar().ToString();
             }
-        }        
+        }
     }
 }

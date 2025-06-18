@@ -50,8 +50,9 @@ namespace UnicomTicManagementSystem.Views
             this.lblTotalStudents = new System.Windows.Forms.Label();
             this.flowSidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.lblWelcome = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnResetPassword = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.performanceCounter1)).BeginInit();
             this.panel2.SuspendLayout();
             this.flowSidebar.SuspendLayout();
@@ -148,7 +149,7 @@ namespace UnicomTicManagementSystem.Views
             // 
             // btnlogout
             // 
-            this.btnlogout.Location = new System.Drawing.Point(13, 472);
+            this.btnlogout.Location = new System.Drawing.Point(13, 512);
             this.btnlogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnlogout.Name = "btnlogout";
             this.btnlogout.Size = new System.Drawing.Size(212, 30);
@@ -178,7 +179,7 @@ namespace UnicomTicManagementSystem.Views
             this.panel2.Location = new System.Drawing.Point(267, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(702, 549);
+            this.panel2.Size = new System.Drawing.Size(702, 607);
             this.panel2.TabIndex = 9;
             // 
             // lblTotalSubjects
@@ -241,13 +242,14 @@ namespace UnicomTicManagementSystem.Views
             this.flowSidebar.Controls.Add(this.button9);
             this.flowSidebar.Controls.Add(this.button7);
             this.flowSidebar.Controls.Add(this.btnResetPassword);
+            this.flowSidebar.Controls.Add(this.button10);
             this.flowSidebar.Controls.Add(this.btnlogout);
             this.flowSidebar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowSidebar.Location = new System.Drawing.Point(14, 19);
+            this.flowSidebar.Location = new System.Drawing.Point(10, 29);
             this.flowSidebar.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
             this.flowSidebar.Name = "flowSidebar";
             this.flowSidebar.Padding = new System.Windows.Forms.Padding(10);
-            this.flowSidebar.Size = new System.Drawing.Size(240, 511);
+            this.flowSidebar.Size = new System.Drawing.Size(248, 549);
             this.flowSidebar.TabIndex = 12;
             this.flowSidebar.WrapContents = false;
             // 
@@ -264,17 +266,6 @@ namespace UnicomTicManagementSystem.Views
             this.lblWelcome.TabIndex = 13;
             this.lblWelcome.Text = "Welcome to \r\nDashboard";
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.panel1.Controls.Add(this.flowSidebar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(267, 549);
-            this.panel1.TabIndex = 8;
-            // 
             // btnResetPassword
             // 
             this.btnResetPassword.Location = new System.Drawing.Point(13, 435);
@@ -286,11 +277,33 @@ namespace UnicomTicManagementSystem.Views
             this.btnResetPassword.UseVisualStyleBackColor = true;
             this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
             // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(13, 472);
+            this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(212, 36);
+            this.button10.TabIndex = 15;
+            this.button10.Text = "Student Attendance";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel1.Controls.Add(this.flowSidebar);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(267, 607);
+            this.panel1.TabIndex = 8;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(969, 549);
+            this.ClientSize = new System.Drawing.Size(969, 607);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -327,5 +340,6 @@ namespace UnicomTicManagementSystem.Views
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblWelcome;
         private Button btnResetPassword;
+        private Button button10;
     }
 }

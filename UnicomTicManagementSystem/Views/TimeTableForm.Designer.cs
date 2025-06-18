@@ -175,7 +175,6 @@
             this.label5.Size = new System.Drawing.Size(54, 16);
             this.label5.TabIndex = 15;
             this.label5.Text = "ROOM :";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // datePicker
             // 
