@@ -32,7 +32,6 @@ namespace UnicomTicManagementSystem.Views
             ApplyRoleAccess();
         }
 
-
         private void ApplyRoleAccess()
         {
             // Clear flowSidebar first (FlowLayoutPanel inside panel1)
@@ -51,6 +50,7 @@ namespace UnicomTicManagementSystem.Views
                 flowSidebar.Controls.Add(button5); // Staff
                 flowSidebar.Controls.Add(button6); // Timetable
                 flowSidebar.Controls.Add(button8); // Exam
+                flowSidebar.Controls.Add(button7); // Marks
                 flowSidebar.Controls.Add(button9); // Room
                 flowSidebar.Controls.Add(btnResetPassword); // Reset
                 flowSidebar.Controls.Add(button10); // Attendance

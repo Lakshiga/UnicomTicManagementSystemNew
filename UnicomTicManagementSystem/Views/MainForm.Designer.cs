@@ -245,11 +245,11 @@ namespace UnicomTicManagementSystem.Views
             this.flowSidebar.Controls.Add(this.button10);
             this.flowSidebar.Controls.Add(this.btnlogout);
             this.flowSidebar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowSidebar.Location = new System.Drawing.Point(10, 29);
+            this.flowSidebar.Location = new System.Drawing.Point(10, 1);
             this.flowSidebar.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
             this.flowSidebar.Name = "flowSidebar";
             this.flowSidebar.Padding = new System.Windows.Forms.Padding(10);
-            this.flowSidebar.Size = new System.Drawing.Size(248, 559);
+            this.flowSidebar.Size = new System.Drawing.Size(248, 596);
             this.flowSidebar.TabIndex = 12;
             this.flowSidebar.WrapContents = false;
             // 

@@ -95,7 +95,7 @@ namespace UnicomTicManagementSystem.Views
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string keyword = secSearch.Text.Trim().ToLower();
+            string keyword = textBox2.Text.Trim().ToLower();
 
             if (!string.IsNullOrEmpty(keyword))
             {

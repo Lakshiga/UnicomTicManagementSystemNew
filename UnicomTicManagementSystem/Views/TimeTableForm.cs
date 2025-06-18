@@ -66,7 +66,6 @@ namespace UnicomTicManagementSystem.Views
         {
             if (userRole.ToLower() == "lecture" || userRole.ToLower() == "staff")
             {
-                // Hide all controls except the DataGridView
                 comboSubject.Visible = false;
                 comboRoom.Visible = false;
                 txtTimeSlot.Visible = false;
@@ -77,17 +76,20 @@ namespace UnicomTicManagementSystem.Views
                 btnDelete.Visible = false;
                 btnPickDate.Visible = false;
 
-                // Also hide associated labels (adjust label names based on your form)
                 label5.Visible = false;
                 label3.Visible = false;
                 label2.Visible = false;
                 label4.Visible = false;
                 label6.Visible = false;
 
-                // Expand the DataGridView to fill the form
                 dataGridView1.Dock = DockStyle.Fill;
+                dataGridView1.ReadOnly = true;
+                dataGridView1.ClearSelection();
+                dataGridView1.DefaultCellStyle.SelectionBackColor = dataGridView1.DefaultCellStyle.BackColor;
+                dataGridView1.DefaultCellStyle.SelectionForeColor = dataGridView1.DefaultCellStyle.ForeColor;
             }
         }
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -151,6 +153,9 @@ namespace UnicomTicManagementSystem.Views
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (userRole.ToLower() == "lecture" || userRole.ToLower() == "staff")
+                return;
+
             if (e.RowIndex >= 0 && dataGridView1.Rows[e.RowIndex].Cells["Id"].Value != null)
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
@@ -162,6 +167,7 @@ namespace UnicomTicManagementSystem.Views
                 datePicker.Value = Convert.ToDateTime(row.Cells["Date"].Value);
             }
         }
+
 
         private void btnPickDate_Click(object sender, EventArgs e)
         {

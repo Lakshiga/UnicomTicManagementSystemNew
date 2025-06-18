@@ -12,7 +12,7 @@ namespace UnicomTicManagementSystem.Views
         private int selectedAttendanceId = -1;
         private string userRole;
 
-        public AttendanceForm(string role = "Admin")
+        public AttendanceForm(string role = "Lecture")
         {
             InitializeComponent();
             userRole = role;
@@ -57,7 +57,6 @@ namespace UnicomTicManagementSystem.Views
                 dataGridViewAttendance.Columns["SubjectID"].Visible = false;
         }
 
-
         private void ApplyRolePermissions()
         {
             if (userRole.ToLower() == "Admin" || userRole.ToLower() == "staff")
@@ -68,6 +67,7 @@ namespace UnicomTicManagementSystem.Views
                 textBoxStudentID.Visible = false;
                 textBoxStudentName.Visible = false;
                 textBoxDate.Visible = false;
+                textBox3.Visible = false;   
                 datePicker.Visible = false;
                 btnMarkAttendance.Visible = false;
                 btnUpdate.Visible = false;
@@ -80,7 +80,7 @@ namespace UnicomTicManagementSystem.Views
                 label3.Visible = false;
                 labelStatus.Visible = false;
                 labelDate.Visible = false;
-
+                label6.Visible = false;
                 dataGridViewAttendance.Dock = DockStyle.Fill;
 
             }
