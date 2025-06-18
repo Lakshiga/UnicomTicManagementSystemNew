@@ -226,6 +226,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.update);
             this.Controls.Add(this.delete);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SectionForm";
             this.Text = "SectionForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSections)).EndInit();

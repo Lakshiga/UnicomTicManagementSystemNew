@@ -30,13 +30,13 @@ namespace UnicomTicManagementSystem.Views
 
         private void LoadSubjects()
         {
-            comboBoxSubject.Items.Clear();
-            DataTable dt = _attendanceService.GetAllSubjects();
-            foreach (DataRow row in dt.Rows)
-            {
-                comboBoxSubject.Items.Add(row["SubjectName"].ToString());
-            }
+            var dt = _attendanceService.GetAllSubjects();
+            comboBoxSubject.DataSource = dt;
+            comboBoxSubject.DisplayMember = "SubjectName";
+            comboBoxSubject.ValueMember = "SubjectID";
+            comboBoxSubject.SelectedIndex = -1;
         }
+
 
         private void LoadStatusOptions()
         {
@@ -47,8 +47,16 @@ namespace UnicomTicManagementSystem.Views
 
         private void LoadAttendanceGrid()
         {
-            dataGridViewAttendance.DataSource = _attendanceService.GetAllAttendance();
+            var dt = _attendanceService.GetAllAttendance();
+            dataGridViewAttendance.DataSource = dt;
+
+            if (dataGridViewAttendance.Columns["AttendanceID"] != null)
+                dataGridViewAttendance.Columns["AttendanceID"].Visible = false;
+
+            if (dataGridViewAttendance.Columns["SubjectID"] != null)
+                dataGridViewAttendance.Columns["SubjectID"].Visible = false;
         }
+
 
         private void ApplyRolePermissions()
         {
@@ -118,7 +126,7 @@ namespace UnicomTicManagementSystem.Views
             {
                 Date = selectedDate,
                 StudentID = textBoxStudentID.Text.Trim(),
-                SubjectID = comboBoxSubject.SelectedItem.ToString(),
+                SubjectID = comboBoxSubject.SelectedValue?.ToString(),
                 Status = comboBoxStatus.SelectedItem.ToString()
             };
 
@@ -135,8 +143,8 @@ namespace UnicomTicManagementSystem.Views
                 DataGridViewRow row = dataGridViewAttendance.Rows[e.RowIndex];
                 selectedAttendanceId = Convert.ToInt32(row.Cells["AttendanceID"].Value);
                 textBoxStudentID.Text = row.Cells["StudentID"].Value.ToString();
-                textBoxStudentName.Text = _attendanceService.GetStudentByID(textBoxStudentID.Text)?.StudentName ?? "";
-                comboBoxSubject.SelectedItem = row.Cells["SubjectID"].Value.ToString();
+                textBoxStudentName.Text = row.Cells["StudentName"].Value.ToString();
+                comboBoxSubject.SelectedValue = row.Cells["SubjectID"].Value.ToString();
                 comboBoxStatus.SelectedItem = row.Cells["Status"].Value.ToString();
                 datePicker.Value = Convert.ToDateTime(row.Cells["Date"].Value);
                 textBoxDate.Text = datePicker.Value.ToString("yyyy-MM-dd");
@@ -189,7 +197,7 @@ namespace UnicomTicManagementSystem.Views
                 AttendanceID = selectedAttendanceId,
                 Date = selectedDate,
                 StudentID = textBoxStudentID.Text.Trim(),
-                SubjectID = comboBoxSubject.SelectedItem.ToString(),
+                SubjectID = comboBoxSubject.SelectedValue?.ToString(),
                 Status = comboBoxStatus.SelectedItem.ToString()
             };
 

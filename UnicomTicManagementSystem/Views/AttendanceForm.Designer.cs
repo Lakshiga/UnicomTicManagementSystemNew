@@ -274,6 +274,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.labelStudentID);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AttendanceForm";
             this.Text = "AttendanceForm";
             this.Load += new System.EventHandler(this.AttendanceForm_Load);
