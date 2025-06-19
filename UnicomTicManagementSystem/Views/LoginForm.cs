@@ -68,7 +68,7 @@ namespace UnicomTicManagementSystem.Views
                     case "admin":
                     case "staff":
                     case "lecture":
-                        var mainForm = new MainForm(user.Role,username); // Pass role to MainForm
+                        var mainForm = new MainForm(user.Role, username); // Pass role to MainForm
                         this.Hide();
                         mainForm.ShowDialog();
                         this.Show();
@@ -93,7 +93,7 @@ namespace UnicomTicManagementSystem.Views
                             UserLogin.Address = student.Address;
                             UserLogin.Stream = student.Stream;
 
-                            StudentDashboard dashboard = new StudentDashboard(txtUsername.Text.Trim());                            
+                            StudentDashboard dashboard = new StudentDashboard(txtUsername.Text.Trim());
                             this.Hide();
                             dashboard.ShowDialog();
                             this.Show();
@@ -102,13 +102,13 @@ namespace UnicomTicManagementSystem.Views
                         else
                         {
                             MessageBox.Show("Student profile not found.");
-                            this.Show(); 
+                            this.Show();
                         }
                         break;
 
                     default:
                         MessageBox.Show("Unknown role. Access denied.");
-                        this.Show(); 
+                        this.Show();
                         break;
                 }
             }
@@ -134,9 +134,10 @@ namespace UnicomTicManagementSystem.Views
 
         }
 
-        private void lblMessage_Click(object sender, EventArgs e)
-        {
+        //private void lblMessage_Click(object sender, EventArgs e)
+        //{
 
-        }
+        //}
+
     }
 }
