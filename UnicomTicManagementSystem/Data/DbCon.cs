@@ -9,13 +9,13 @@ namespace UnicomTicManagementSystem.Data
 {
     public static class DbCon
     {
-        private static string connectionString = "Data Source = SchoolManageDB.db; Version=3;";
+        private const string ConnectionString = "Data Source=SchoolManageDB.db;Version=3;";
 
         public static SQLiteConnection GetConnection()
         {
-            var conn = new SQLiteConnection(connectionString);
-            conn.Open();
-            return conn;
+            var connection = new SQLiteConnection(ConnectionString);
+            connection.Open();
+            return connection;
         }
     }
 }

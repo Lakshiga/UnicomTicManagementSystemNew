@@ -118,10 +118,6 @@ namespace UnicomTicManagementSystem.Views
             }
         }
 
-        private void LoginForm_Load_1(object sender, EventArgs e)
-        {
-
-        }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {

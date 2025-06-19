@@ -45,10 +45,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lblSubject = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnViewAttendance = new System.Windows.Forms.Button();
             this.btnResetPassword = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnViewAttendance = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -221,6 +222,17 @@
             this.panel1.Size = new System.Drawing.Size(200, 450);
             this.panel1.TabIndex = 16;
             // 
+            // btnViewAttendance
+            // 
+            this.btnViewAttendance.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewAttendance.Location = new System.Drawing.Point(33, 279);
+            this.btnViewAttendance.Name = "btnViewAttendance";
+            this.btnViewAttendance.Size = new System.Drawing.Size(129, 30);
+            this.btnViewAttendance.TabIndex = 15;
+            this.btnViewAttendance.Text = "Attendance";
+            this.btnViewAttendance.UseVisualStyleBackColor = true;
+            this.btnViewAttendance.Click += new System.EventHandler(this.btnViewAttendance_Click);
+            // 
             // btnResetPassword
             // 
             this.btnResetPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -241,7 +253,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(400, 111);
             this.dataGridView1.TabIndex = 17;
-            this.dataGridView1.Visible = true;
             // 
             // label8
             // 
@@ -253,22 +264,20 @@
             this.label8.TabIndex = 18;
             this.label8.Text = "MY DETAILS ";
             // 
-            // btnViewAttendance
+            // panel2
             // 
-            this.btnViewAttendance.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewAttendance.Location = new System.Drawing.Point(33, 279);
-            this.btnViewAttendance.Name = "btnViewAttendance";
-            this.btnViewAttendance.Size = new System.Drawing.Size(129, 30);
-            this.btnViewAttendance.TabIndex = 15;
-            this.btnViewAttendance.Text = "Attendance";
-            this.btnViewAttendance.UseVisualStyleBackColor = true;
-            this.btnViewAttendance.Click += new System.EventHandler(this.btnViewAttendance_Click);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(200, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(600, 100);
+            this.panel2.TabIndex = 19;
             // 
             // StudentDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
@@ -319,5 +328,6 @@
         private System.Windows.Forms.Button btnResetPassword;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnViewAttendance;
+        private System.Windows.Forms.Panel panel2;
     }
 }

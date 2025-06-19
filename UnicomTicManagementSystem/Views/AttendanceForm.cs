@@ -12,7 +12,7 @@ namespace UnicomTicManagementSystem.Views
         private int selectedAttendanceId = -1;
         private string userRole;
 
-        public AttendanceForm(string role = "Lecture")
+        public AttendanceForm(string role = "lecture")
         {
             InitializeComponent();
             userRole = role;
@@ -59,7 +59,7 @@ namespace UnicomTicManagementSystem.Views
 
         private void ApplyRolePermissions()
         {
-            if (userRole.ToLower() == "Admin" || userRole.ToLower() == "staff")
+            if (userRole.ToLower() == "admin" || userRole.ToLower() == "staff")
             {
                 // Hide all controls except the DataGridView
                 comboBoxSubject.Visible = false;

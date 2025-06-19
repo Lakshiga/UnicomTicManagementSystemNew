@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using UnicomTicManagementSystem.Controllers;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UnicomTicManagementSystem.Views
 {
@@ -22,7 +14,7 @@ namespace UnicomTicManagementSystem.Views
         public MarkForm(string role = "Lecture")
         {
             InitializeComponent();
-            userRole = role;
+            userRole = role.ToLower(); // normalize role for comparison
         }
 
         private void MarkForm_Load(object sender, EventArgs e)
@@ -44,9 +36,9 @@ namespace UnicomTicManagementSystem.Views
 
         private void ApplyRolePermissions()
         {
-            if (userRole.ToLower() == "Admin")
+            if (userRole == "admin")
             {
-                // Hide all form controls except DataGridView
+                // Hide input controls and buttons
                 txtScore.Visible = false;
                 comboExam.Visible = false;
                 comboSubject.Visible = false;
@@ -56,14 +48,15 @@ namespace UnicomTicManagementSystem.Views
                 btnUpdate.Visible = false;
                 btnDelete.Visible = false;
 
-                label6.Visible = false;
-                label5.Visible = false;
-                label3.Visible = false;
+                // Hide labels
                 label1.Visible = false;
                 label2.Visible = false;
+                label3.Visible = false;
                 label4.Visible = false;
+                label5.Visible = false;
+                label6.Visible = false;
 
-                // Expand and disable DataGridView
+                // Expand DataGridView
                 dataGridView1.Dock = DockStyle.Fill;
                 dataGridView1.ReadOnly = true;
                 dataGridView1.ClearSelection();
@@ -71,7 +64,6 @@ namespace UnicomTicManagementSystem.Views
                 dataGridView1.DefaultCellStyle.SelectionForeColor = dataGridView1.DefaultCellStyle.ForeColor;
             }
         }
-
 
         private void LoadSubjects(int studentId)
         {
@@ -97,10 +89,9 @@ namespace UnicomTicManagementSystem.Views
             }
         }
 
-
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (userRole.ToLower() == "admin") return;
+            if (userRole == "admin") return;
 
             if (e.RowIndex >= 0)
             {
@@ -112,7 +103,6 @@ namespace UnicomTicManagementSystem.Views
                 txtScore.Text = row.Cells["Score"].Value.ToString();
             }
         }
-
 
         private void ClearForm()
         {
@@ -146,10 +136,13 @@ namespace UnicomTicManagementSystem.Views
                 return;
             }
 
-            int studentId = Convert.ToInt32(txtStudentID.Text);
-            int score = Convert.ToInt32(txtScore.Text);
-            controller.UpdateMark(selectedMarkId, studentId, comboSubject.SelectedItem.ToString(), comboExam.SelectedItem.ToString(), score);
+            if (!int.TryParse(txtStudentID.Text, out int studentId) || !int.TryParse(txtScore.Text, out int score))
+            {
+                MessageBox.Show("Invalid Student ID or Score.");
+                return;
+            }
 
+            controller.UpdateMark(selectedMarkId, studentId, comboSubject.SelectedItem.ToString(), comboExam.SelectedItem.ToString(), score);
             MessageBox.Show("Updated.");
             LoadMarks();
             ClearForm();
